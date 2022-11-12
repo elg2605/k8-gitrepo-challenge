@@ -5,7 +5,7 @@ metadata:
   namespace: default
 spec:
   interval: 30s
-  url: https://github.com/mikesir87/sample-flux-manifests/
+  url: https://github.com/elg2605/k8-gitrepo-challenge.git
   ref:
     branch: main
 ---
