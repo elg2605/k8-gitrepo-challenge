@@ -1,0 +1,24 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: cs2304-challenge
+  namespace: default
+spec:
+  interval: 30s
+  url: https://github.com/mikesir87/sample-flux-manifests/
+  ref:
+    branch: main
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: cs2304-demo
+  namespace: default
+spec:
+  interval: 5m
+  targetNamespace: default
+  sourceRef:
+    kind: GitRepository
+    name: cs2304-challenge
+  path: "./"
+  prune: true
